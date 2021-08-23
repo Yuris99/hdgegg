@@ -1,7 +1,7 @@
 <template>
     <div v-if="showRouter">
         <transition appear name="fade" mode="out-in">
-            <router-view :EggData="EggData" :key="$route.fullPath" ></router-view>
+            <router-view :EggData="EggData" ></router-view>
         </transition>
     </div>
 </template>
