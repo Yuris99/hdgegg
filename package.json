@@ -2,6 +2,7 @@
   "name": "hdgegg",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://yuris99.github.io/hdgegg",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,7 +10,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "firebase": "^8.10.0",
+    "vue": "^3.0.0",
+    "vue-onload": "^3.1.0",
+    "vue-router": "^4.0.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

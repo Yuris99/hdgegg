@@ -1,17 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <Container :EggData="FirebaseData" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import fdata from "./firebaseInit.js";
+import Container from "./components/Container.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      FirebaseData: [],
+    }
+  },
   components: {
-    HelloWorld
-  }
-}
+    Container,
+  },
+  methods: {
+  },
+  created() {
+    //database init
+    fdata.collection("EggList")
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            this.FirebaseData.push(doc.data());
+        });
+    });
+  },
+};
 </script>
 
 <style>
@@ -22,5 +43,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color:black;
 }
 </style>
